@@ -3,6 +3,8 @@
   Add centrifuge recipe for beehives with honey in inventory.
 --]]
 
+local S = mobs.intllib
+
 minetest.override_item("mobs:beehive", {
 	on_dig = function(pos, node, digger)
 		local meta = minetest.get_meta(pos)
