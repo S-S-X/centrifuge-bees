@@ -14,7 +14,6 @@ minetest.override_item("mobs:beehive", {
 		if honey > 0 then
 			stack = stack .. "_" .. honey
 		end
-		--minetest.node_dig(pos, node, digger)
 		minetest.handle_node_drops(pos, {stack}, digger)
 		minetest.remove_node(pos)
 	end,
@@ -42,6 +41,6 @@ for i = 1, 12 do
   technic.register_separating_recipe({
     input = {"mobs:beehive_" .. i .. " 1"},
     output = {"mobs:beehive", "mobs:honey " .. i},
-    time = math.min(6, i)
+    time = ( i + 2 ) * 3 - i
   })
 end
