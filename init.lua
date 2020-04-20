@@ -6,20 +6,20 @@
 local S = mobs.intllib
 
 minetest.override_item("mobs:beehive", {
-	on_dig = function(pos, node, digger)
-		if minetest.is_protected(pos, digger) then
-			return
-		end
-		local meta = minetest.get_meta(pos)
-		local inv = meta:get_inventory()
-		local honey = inv:get_stack("beehive", 1):get_count()
-		local stack = "mobs:beehive"
-		if honey > 0 then
-			stack = stack .. "_" .. honey
-		end
-		minetest.handle_node_drops(pos, {stack}, digger)
-		minetest.remove_node(pos)
-	end,
+  on_dig = function(pos, node, digger)
+    if minetest.is_protected(pos, digger) then
+      return
+    end
+    local meta = minetest.get_meta(pos)
+    local inv = meta:get_inventory()
+    local honey = inv:get_stack("beehive", 1):get_count()
+    local stack = "mobs:beehive"
+    if honey > 0 then
+      stack = stack .. "_" .. honey
+    end
+    minetest.handle_node_drops(pos, {stack}, digger)
+    minetest.remove_node(pos)
+  end,
 })
 
 -- register beehive items and technic recipes
